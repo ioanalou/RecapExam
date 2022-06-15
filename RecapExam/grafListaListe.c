@@ -113,5 +113,44 @@ void dezalocareLP(nodLP* cap)
 
 void main()
 {
+	nodlp* graf = NULL;
+	int nrNoduri;
+	printf("Nr de noduri: ");
+	scanf("%d", &nrNoduri);
+	for (int i = 0; i < nrNoduri; i++)
+	{
+		//id-ul va fi i-ul, numele citit de la tastatura
+		student s;
+		s.id = i;
+		char buffer[20];
+		printf("Numele studentului : ");
+		scanf("%s", &buffer);
+		s.nume = (char*)malloc(sizeof(char) * (strlen(buffer) + 1));
+		strcpy(s.nume, buffer);
+		graf = inserareLP(graf, s);
+	}
 
+	//inserare arce(vecinii pt fiecare nod)
+	int nrArce = 0;
+	printf("Nr de arce: ");
+	scanf("%d", &nrArce);
+
+	for (int i = 0; i < nrArce; i++)
+	{
+		int idStart;
+		printf("Id-ul nodului de start: ");
+		scanf("%d", &idStart);
+		int idStop;
+		printf("Id-ul nodului de stop: ");
+		scanf("%d", &idStop);
+		inserareArcInGraf(graf, idStart, idStop);
+	}
+
+	//afisare
+	traversareLP(graf);
+	//parcurgere in adancime
+	printf("\nParcurgere in adancime de la nodul 1:\n");
+	parcurgereAdancime(graf, 0);
+
+	dezalocareLP(graf);
 }

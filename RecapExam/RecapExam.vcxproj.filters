@@ -69,7 +69,7 @@
     <ClCompile Include="grafParcurgeri.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gradLista.c">
+    <ClCompile Include="grafLista.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="grafListaListe.c">
